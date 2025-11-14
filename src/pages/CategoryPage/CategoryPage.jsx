@@ -1,10 +1,12 @@
-
+import CategoryComponent from "../../components/CategoryComponent/CategoryComponent";
+import { useParams } from "react-router-dom";
 
 const CategoryPage = () => {
+    const params = useParams();
+
     return (
         <div>
-            <p>category page</p>
-            
+            <CategoryComponent category={params.category} />
         </div>
     );
 }

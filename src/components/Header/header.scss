@@ -1,0 +1,22 @@
+.header{
+    background-color: #252525;
+    padding: 15px 0;
+
+    &-container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &-nav{
+        display: flex;
+        column-gap: 15px;
+        align-items: center;
+        &-link{
+            font-size: 18px;
+        }
+    }
+    a{
+        color: #fff;
+        text-decoration: none;
+    }
+}

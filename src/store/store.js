@@ -18,8 +18,40 @@ export const categoryStore = create(devtools(immer((set) => {
     }
 })));
 
-export const cartStore = create(persist(devtools(immer(set =>{
+export const cartStore = create(persist(devtools(immer((set) => {
     return {
-        cart:[],
+        cartList: [],
+        addCart: (product) => {
+            set((state) => {
+                const idx = state.cartList.findIndex(item => product.id === item.id);
+                if(idx > -1){
+                    state.cartList[idx].count++
+                }else{
+                    state.cartList = [
+                        {
+                            count: 1,
+                            ...product
+                        },
+                        ...state.cartList
+                    ]
+                }
+            })
+        },
+        decrementCart: (product) => {
+            set((state) => {
+                const idx = state.cartList.findIndex(item => product.id === item.id);
+                state.cartList[idx].count--
+            })
+
+        },
+        deleteCart:  (product) => {
+            set((state) => {
+                state.cartList = state.cartList.filter(item => {
+                  return  item.id !== product.id
+                }) 
+            })
+
+        }
+    
     }
-}))))
+}))));

@@ -14,7 +14,7 @@ const Header = () => {
                             categories.map(item =>{
                                 return <Link 
                                 className="header-nav-link"
-                                to={`/${item}`}
+                                to={`category/${item}`}
                                 key={item}
                                 >{item}</Link>
                             })
